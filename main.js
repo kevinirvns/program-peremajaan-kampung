@@ -218,3 +218,11 @@ function locateUser() {
 }
 
 initializeMap();
+
+map.on('popupopen', function () {
+    document.body.classList.add('no-scroll');
+});
+
+map.on('popupclose', function () {
+    document.body.classList.remove('no-scroll');
+});
