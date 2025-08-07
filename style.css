@@ -25,7 +25,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: fixed;
+    position: relative;
     z-index: 1000;
 }
 
@@ -245,11 +245,16 @@ body {
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    max-height: 200px;
+    margin-top: 20px;
 }
 
 .leaflet-popup-content {
     font-size: 14px;
     color: #333;
+    max-height: 150px; /* agar tetap dalam layar */
+    font-size: 13px;   /* kecilkan font */
+}
 }
 
 .leaflet-popup-content table {
@@ -308,5 +313,25 @@ body {
     padding: 5px 10px;
     font-size: 10px;
     z-index: 1000;
+}
+
+@media (max-width: 600px) {
+  .leaflet-popup-content-wrapper {
+    max-width: 400px !important;  /* Batas lebar popup */
+    font-size: 12px !important;   /* Ukuran teks lebih kecil */
+    padding: 5px !important;      /* Kurangi padding */
+  }
+
+  .leaflet-popup-content {
+    font-size: 12px !important;
+  }
+
+  .leaflet-popup-content table td {
+    padding: 4px !important;
+  }
+
+  .leaflet-popup-tip {
+    display: none; /* opsional: hilangkan segitiga kecil popup */
+  }
 }
 
