@@ -207,7 +207,7 @@ body {
     position: absolute;
     top: 10px;
     right: 10px;
-    z-index: 1100;
+    z-index: 1101;
     background: #cecece;
     color: rgb(0, 0, 0);
     border: 1px solid white;
@@ -240,13 +240,14 @@ body {
     background: #171616;
 }
 
+
 /* Popup styling */
 .leaflet-popup-content-wrapper {
+    max-height: 250px;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    max-height: 200px;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .leaflet-popup-content {
@@ -254,7 +255,6 @@ body {
     color: #333;
     max-height: 150px; /* agar tetap dalam layar */
     font-size: 13px;   /* kecilkan font */
-}
 }
 
 .leaflet-popup-content table {
@@ -335,3 +335,7 @@ body {
   }
 }
 
+body.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+}
