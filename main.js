@@ -162,7 +162,26 @@ function onEachFeature(feature, layer) {
             <tr><td><strong>Status</strong></td><td>${Status ?? "-"}</td></tr>
             <tr><td><strong>Terdampak</strong></td><td>${Terdampak ?? "-"}</td></tr>
         </table>`;
+
     layer.bindPopup(popupContent);
+
+    layer.on('popupopen', function () {
+        document.body.classList.add('no-scroll');
+        const map = maps['map1'];
+        map.dragging.disable();
+        map.scrollWheelZoom.disable();
+        map.doubleClickZoom.disable();
+        map.touchZoom.disable();
+    });
+
+    layer.on('popupclose', function () {
+        document.body.classList.remove('no-scroll');
+        const map = maps['map1'];
+        map.dragging.enable();
+        map.scrollWheelZoom.enable();
+        map.doubleClickZoom.enable();
+        map.touchZoom.enable();
+    });
 }
 
 function applyRumahFilter() {
@@ -218,11 +237,3 @@ function locateUser() {
 }
 
 initializeMap();
-
-map.on('popupopen', function () {
-    document.body.classList.add('no-scroll');
-});
-
-map.on('popupclose', function () {
-    document.body.classList.remove('no-scroll');
-});
